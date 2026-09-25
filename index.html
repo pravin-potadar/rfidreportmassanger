@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>RFID Production Report</title>
 
     <style>
@@ -69,11 +70,13 @@
             border-radius: 8px;
             font-size: 16px;
             outline: none;
+            background: white;
         }
 
         select:focus,
         input:focus {
             border-color: #0284c7;
+            box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.10);
         }
 
         .section {
@@ -133,15 +136,21 @@
 
         .message-box textarea {
             width: 100%;
-            min-height: 300px;
+            min-height: 350px;
             padding: 12px;
             border: 1px solid #cbd5e1;
             border-radius: 8px;
             resize: vertical;
             font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .required {
+            color: red;
         }
 
         @media (max-width: 600px) {
+
             body {
                 padding: 10px;
             }
@@ -166,146 +175,354 @@
 
 <div class="container">
 
+    <!-- Header -->
     <div class="header">
         <h1>RFID</h1>
         <p>Production Report</p>
 
-        <!-- Current Date -->
         <div class="date-display" id="currentDate"></div>
     </div>
 
+
+    <!-- Shift -->
+    <div class="form-group">
+
+        <label for="shift">
+            Shift <span class="required">*</span>
+        </label>
+
+        <select id="shift">
+            <option value="">-- Select Shift --</option>
+            <option value="1st Shift">1st Shift</option>
+            <option value="2nd Shift">2nd Shift</option>
+            <option value="3rd Shift">3rd Shift</option>
+        </select>
+
+    </div>
+
+
     <!-- Product -->
     <div class="form-group">
-        <label for="product">Product Name</label>
+
+        <label for="product">
+            Product Name <span class="required">*</span>
+        </label>
+
         <select id="product">
-            <option value="">-- Select Product --</option>
-            <option value="TML">TML</option>
-            <option value="MTBD">MTBD</option>
+
+            <option value="">
+                -- Select Product --
+            </option>
+
+            <option value="TML">
+                TML
+            </option>
+
+            <option value="MTBD">
+                MTBD
+            </option>
+
         </select>
+
     </div>
+
 
     <!-- Flashing & Primary -->
     <div class="section">
+
         <h2>Flashing &amp; Primary</h2>
 
         <div class="count-row">
+
             <div>
-                <label for="flashingOk">OK Count</label>
-                <input type="number" id="flashingOk" min="0" value="0">
+
+                <label for="flashingOk">
+                    OK Count
+                </label>
+
+                <input
+                    type="number"
+                    id="flashingOk"
+                    min="0"
+                    value="0"
+                >
+
             </div>
 
             <div>
-                <label for="flashingWip">WIP Count</label>
-                <input type="number" id="flashingWip" min="0" value="0">
+
+                <label for="flashingWip">
+                    WIP Count
+                </label>
+
+                <input
+                    type="number"
+                    id="flashingWip"
+                    min="0"
+                    value="0"
+                >
+
             </div>
+
         </div>
+
     </div>
+
 
     <!-- Screwing -->
     <div class="section">
+
         <h2>Screwing</h2>
 
         <div class="count-row">
+
             <div>
-                <label for="screwingOk">OK Count</label>
-                <input type="number" id="screwingOk" min="0" value="0">
+
+                <label for="screwingOk">
+                    OK Count
+                </label>
+
+                <input
+                    type="number"
+                    id="screwingOk"
+                    min="0"
+                    value="0"
+                >
+
             </div>
 
             <div>
-                <label for="screwingWip">WIP Count</label>
-                <input type="number" id="screwingWip" min="0" value="0">
+
+                <label for="screwingWip">
+                    WIP Count
+                </label>
+
+                <input
+                    type="number"
+                    id="screwingWip"
+                    min="0"
+                    value="0"
+                >
+
             </div>
+
         </div>
+
     </div>
+
 
     <!-- Air Leak -->
     <div class="section">
+
         <h2>Air Leak</h2>
 
         <div class="count-row">
+
             <div>
-                <label for="airLeakOk">OK Count</label>
-                <input type="number" id="airLeakOk" min="0" value="0">
+
+                <label for="airLeakOk">
+                    OK Count
+                </label>
+
+                <input
+                    type="number"
+                    id="airLeakOk"
+                    min="0"
+                    value="0"
+                >
+
             </div>
 
             <div>
-                <label for="airLeakWip">WIP Count</label>
-                <input type="number" id="airLeakWip" min="0" value="0">
+
+                <label for="airLeakWip">
+                    WIP Count
+                </label>
+
+                <input
+                    type="number"
+                    id="airLeakWip"
+                    min="0"
+                    value="0"
+                >
+
             </div>
+
         </div>
+
     </div>
+
 
     <!-- Final Testing -->
     <div class="section">
+
         <h2>Final Testing</h2>
 
         <div class="count-row">
+
             <div>
-                <label for="finalTestingOk">OK Count</label>
-                <input type="number" id="finalTestingOk" min="0" value="0">
+
+                <label for="finalTestingOk">
+                    OK Count
+                </label>
+
+                <input
+                    type="number"
+                    id="finalTestingOk"
+                    min="0"
+                    value="0"
+                >
+
             </div>
 
             <div>
-                <label for="finalTestingWip">WIP Count</label>
-                <input type="number" id="finalTestingWip" min="0" value="0">
+
+                <label for="finalTestingWip">
+                    WIP Count
+                </label>
+
+                <input
+                    type="number"
+                    id="finalTestingWip"
+                    min="0"
+                    value="0"
+                >
+
             </div>
+
         </div>
+
     </div>
+
 
     <!-- Sticker Printing -->
     <div class="section">
+
         <h2>Sticker Printing</h2>
 
         <div class="count-row">
+
             <div>
-                <label for="stickerPrintingOk">OK Count</label>
-                <input type="number" id="stickerPrintingOk" min="0" value="0">
+
+                <label for="stickerPrintingOk">
+                    OK Count
+                </label>
+
+                <input
+                    type="number"
+                    id="stickerPrintingOk"
+                    min="0"
+                    value="0"
+                >
+
             </div>
 
             <div>
-                <label for="stickerPrintingWip">WIP Count</label>
-                <input type="number" id="stickerPrintingWip" min="0" value="0">
+
+                <label for="stickerPrintingWip">
+                    WIP Count
+                </label>
+
+                <input
+                    type="number"
+                    id="stickerPrintingWip"
+                    min="0"
+                    value="0"
+                >
+
             </div>
+
         </div>
+
     </div>
+
 
     <!-- FG -->
     <div class="section">
+
         <h2>FG Count</h2>
 
-        <label for="fgCount">Count</label>
-        <input type="number" id="fgCount" min="0" value="0">
+        <label for="fgCount">
+            Count
+        </label>
+
+        <input
+            type="number"
+            id="fgCount"
+            min="0"
+            value="0"
+        >
+
     </div>
+
+
+    <!-- Dispatch -->
+    <div class="section">
+
+        <h2>Dispatch Count</h2>
+
+        <label for="dispatchCount">
+            Dispatch Count
+        </label>
+
+        <input
+            type="number"
+            id="dispatchCount"
+            min="0"
+            value="0"
+        >
+
+    </div>
+
 
     <!-- Buttons -->
     <div class="button-group">
 
-        <button class="preview-btn" onclick="generateMessage()">
+        <button
+            class="preview-btn"
+            onclick="generateMessage()">
+
             Preview Message
+
         </button>
 
-        <button class="whatsapp-btn" onclick="sendWhatsApp()">
+
+        <button
+            class="whatsapp-btn"
+            onclick="sendWhatsApp()">
+
             Send WhatsApp
+
         </button>
 
     </div>
 
+
     <!-- Message Preview -->
-    <div class="message-box" id="messageBox">
+    <div
+        class="message-box"
+        id="messageBox">
 
         <label for="whatsappMessage">
             WhatsApp Message
         </label>
 
-        <textarea id="whatsappMessage" readonly></textarea>
+        <textarea
+            id="whatsappMessage"
+            readonly>
+        </textarea>
 
     </div>
 
 </div>
 
+
 <script>
 
-    // Show Current Date on Page
+    // ================================
+    // CURRENT DATE
+    // ================================
+
     function getCurrentDate() {
 
         const today = new Date();
@@ -316,75 +533,122 @@
             year: "numeric"
         };
 
-        return today.toLocaleDateString("en-IN", options);
+        return today.toLocaleDateString(
+            "en-IN",
+            options
+        );
     }
 
-    // Display date at top
+
     document.getElementById("currentDate").innerText =
         "Date: " + getCurrentDate();
 
 
-    // Get input value
+    // ================================
+    // GET VALUE
+    // ================================
+
     function getValue(id) {
 
-        return document.getElementById(id).value || "0";
+        const element =
+            document.getElementById(id);
+
+        return element.value || "0";
 
     }
 
 
-    // Generate WhatsApp Message
+    // ================================
+    // GENERATE MESSAGE
+    // ================================
+
     function generateMessage() {
+
+        const shift =
+            document.getElementById("shift").value;
 
         const product =
             document.getElementById("product").value;
 
-        if (product === "") {
 
-            alert("Please select Product Name.");
+        // Shift validation
+
+        if (shift === "") {
+
+            alert("Please select Shift.");
+
+            document.getElementById("shift").focus();
 
             return "";
 
         }
 
 
-        const currentDate = getCurrentDate();
+        // Product validation
 
+        if (product === "") {
+
+            alert("Please select Product Name.");
+
+            document.getElementById("product").focus();
+
+            return "";
+
+        }
+
+
+        const currentDate =
+            getCurrentDate();
+
+
+        // ================================
+        // WHATSAPP MESSAGE
+        // ================================
 
         const message =
-`RFID 
+`*RFID PRODUCTION REPORT*
 
 Date: ${currentDate}
-
+Shift: ${shift}
 Product Name: ${product}
 
-Flashing & Primary
+*Flashing & Primary*
 OK Count: ${getValue("flashingOk")}
 WIP Count: ${getValue("flashingWip")}
 
-Screwing
+*Screwing*
 OK Count: ${getValue("screwingOk")}
 WIP Count: ${getValue("screwingWip")}
 
-Air Leak
+*Air Leak*
 OK Count: ${getValue("airLeakOk")}
 WIP Count: ${getValue("airLeakWip")}
 
-Final Testing
+*Final Testing*
 OK Count: ${getValue("finalTestingOk")}
 WIP Count: ${getValue("finalTestingWip")}
 
-Sticker Printing
+*Sticker Printing*
 OK Count: ${getValue("stickerPrintingOk")}
 WIP Count: ${getValue("stickerPrintingWip")}
 
-FG Count: ${getValue("fgCount")}`;
+*FG Count*
+${getValue("fgCount")}
+
+*Dispatch Count*
+${getValue("dispatchCount")}`;
 
 
-        document.getElementById("whatsappMessage").value =
-            message;
+        // Show message
 
-        document.getElementById("messageBox").style.display =
-            "block";
+        document.getElementById(
+            "whatsappMessage"
+        ).value = message;
+
+
+        document.getElementById(
+            "messageBox"
+        ).style.display = "block";
 
 
         return message;
@@ -392,10 +656,15 @@ FG Count: ${getValue("fgCount")}`;
     }
 
 
-    // Send WhatsApp
+    // ================================
+    // SEND WHATSAPP
+    // ================================
+
     function sendWhatsApp() {
 
-        const message = generateMessage();
+        const message =
+            generateMessage();
+
 
         if (!message) {
 
@@ -409,7 +678,10 @@ FG Count: ${getValue("fgCount")}`;
             encodeURIComponent(message);
 
 
-        window.open(whatsappUrl, "_blank");
+        window.open(
+            whatsappUrl,
+            "_blank"
+        );
 
     }
 
@@ -417,4 +689,3 @@ FG Count: ${getValue("fgCount")}`;
 
 </body>
 </html>
-
